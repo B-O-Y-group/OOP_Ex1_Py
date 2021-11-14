@@ -8,4 +8,7 @@ class callForElevator:
         self.dest = dest
         self.type = type
 
-    
+
+
+
+
