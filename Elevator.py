@@ -1,6 +1,6 @@
 class Elevator:
 
-    def __init__(self, id, speed, min_floor, max_floor, close_time, open_time, start_time, stop_time):
+    def __init__(self, id, speed, min_floor, max_floor, close_time, open_time, start_time, stop_time, pos):
         self.id = id
         self.speed = speed
         self.min_floor = min_floor
@@ -9,6 +9,7 @@ class Elevator:
         self.open_time = open_time
         self.start_time = start_time
         self.stop_time = stop_time
+        self.pos =pos
 
 
 
