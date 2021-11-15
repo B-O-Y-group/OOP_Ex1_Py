@@ -1,14 +1,32 @@
 
-
+from CallForElevator import callForElevator
+from Elevator import  Elevator
 class callList:
 
-    def __init__(self,num_of_call):
+    def __init__(self,num_of_call ):
+        self.num_of_call #= callForElevator
         call_list = []
         for i in range(0,num_of_call):
-             call_list.append([i])
+            call_list.append([])
 
 
 
 
 
-   def add
+
+
+   def horse_power(self, src, dest, elev: Elevator):
+        stop_time = elev.stop_time
+        start_time = elev.start_time
+        open_time = elev.open_time
+        close_time = elev.close_time
+        speed = elev.speed
+        dis = abs(src - dest)
+        time = stop_time + start_time+ open_time+close_time
+        how_many_stop = callList[0] ##idk
+
+
+
+        return (time+dis/speed)*how_many_stop
+
+
