@@ -2,7 +2,7 @@ from CallList import *
 # from Numpy import *
 
 
-class B_Traffic(Building):
+class B_Traffic():
     def __init__(self, call_list: CallList, b_json):
         super(B_Traffic, self).__init__(b_json)
         self.traffic_list = {}
