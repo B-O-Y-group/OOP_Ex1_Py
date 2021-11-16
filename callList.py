@@ -19,10 +19,9 @@ def horse_power(self, src, dest, elev: Elevator):
     speed = elev.speed
     dis = abs(src - dest)
     time = stop_time + start_time + open_time + close_time
-    how_many_stop = callList[0]  ##idk
-
-    return (time + dis / speed) * how_many_stop
 
 
-if __name__ = '__main__':
-    
+#     return (time + dis / speed) * how_many_stop
+#
+#
+# if __name__ = '__main__':
