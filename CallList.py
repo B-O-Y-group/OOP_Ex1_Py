@@ -1,15 +1,24 @@
 from CallForElevator import callForElevator
-from Elevator import Elevator
 
 import csv
+
+
 class callList:
 
     def __init__(self, file):
-        row = []
-        call=[]
-        with open(file,'r+') as f:
-            csvreader = csv.reader(f)
+        self.call = []
+        try:
+            with open(file, 'r') as file:
+                csvread = csv.reader(file)
+                for row in csvread:
+                    c = callForElevator(str=row[0], time=row[1], src=row[2], dest=row[3], type=row[4], index=row[5])
+                    self.call.append(c)
+                self.listcall = self.call
 
-            for row in csvreader
+
+        except IOError as exp:
+            print('my exp - ', exp)
 
 
+if __name__ == '__main__':
+    print(callList('Calls_a.csv'))
