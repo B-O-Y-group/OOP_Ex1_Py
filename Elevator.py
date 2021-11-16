@@ -16,6 +16,23 @@ class Elevator:
 
 
 
+    def get_speed(self):
+        return self.speed
 
+    def get_min_floor(self):
+        return self.min_floor
 
+    def get_max_floor(self):
+        return self.max_floor
 
+    def close_time(self):
+        return self.close_time()
+    def open_time(self):
+        return self.open_time()
+
+    def start_time(self):
+        return self.open_time()
+
+    def stop_time(self):
+        self.stop_time()
+        
