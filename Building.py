@@ -7,38 +7,36 @@ import json
 class Building:
 
     def __init__(self, file):
-        self.elevator = []
-        self.count = 0  # how many elevator
-      #  try:
-        with open('file', 'r+') as f:
 
-                data = json.loads(file)  # read the fill and make it array
+        self.count = 0  # how many elevator
+        try:
+            with open('file', 'r+'):
+                data = json.loads(file)
 
                 self.min_floor = data["_minFloor"]
                 self.max_floor = data["_maxFloor"]
+                self.elevator = []
+
 
                 for i in data['_elevators']:
-
-                  #  elev = Elevator("_id", "_speed", "_minFloor", "_maxFloor", "_closeTime", "_openTime",
-                              #     "_startTime",
-                               #     "_stopTime")
-                    self.elevator.append(Elevator(i))
-
-        f.close()
-        #except IOError as exp:
-         #   print(exp)
+                 #  elev = Elevator("_id", "_speed", "_minFloor", "_maxFloor", "_closeTime", "_openTime",
+                  #     "_startTime",
+                           #     "_stopTime")
+                        print(i)
+                     #   self.elevator.append(Elevator(i))
+              #  self.ElevatorList = self.elevator
 
 
+        except IOError as exp:
+             print(exp)
 
 
+    def __str__(self) -> str:
+         return f"{self.elevator}\n cont:{self.count}"
 
-
-    # def __str__(self) -> str:
-    #     return f"{self.elevator}\n cont:{self.count}"
-
-
-file1 = r"Users\97252\Downloads\Ex1_input (1)\Ex1_input\Ex1_BuildingsB1.json"
-
-b1 = Building(file1)
-
-print(b1.max_Floor)
+# if __name__ == '__main__':
+#     file = r"Users/97252/Downloads/Ex1_input (1)/Ex1_input/Ex1_Buildings/B1.json"
+#
+#     b1 = Building(file)
+#
+#     print(b1.max_Floor)
