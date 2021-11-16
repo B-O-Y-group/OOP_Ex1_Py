@@ -18,8 +18,7 @@ class Building:
                 self.elevator = []
 
                 for i in data['_elevators']:
-                    elev = Elevator("_id", "_speed", "_minFloor", "_maxFloor", "_closeTime", "_openTime",
-                                    "_startTime", "_stopTime")
+                    elev = Elevator(**i)
 
                     self.elevator.append(elev)
             self.ElevatorList = self.elevator
@@ -36,4 +35,3 @@ class Building:
 
     def get_num_floor(self):
         return (self.max_floor - self.min_floor) + 1
-
