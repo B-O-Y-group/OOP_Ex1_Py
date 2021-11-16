@@ -1,4 +1,4 @@
-import callList
+import CallList
 from Elevator import Elevator
 import json
 
@@ -6,7 +6,7 @@ import json
 class Building:
 
 
-    def __init__(self):
+    def __init__(self, file):
         self.min_floor = 0
         self.max_floor = 10
         self.elevator = []
