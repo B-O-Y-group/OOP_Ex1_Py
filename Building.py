@@ -10,7 +10,7 @@ class Building:
         self.elevator = []
         self.count = 0  # how many elevator
       #  try:
-        with open('file', 'r+') as f:
+        with open('files', 'r+') as f:
 
                 data = json.loads(file)  # read the fill and make it array
 
