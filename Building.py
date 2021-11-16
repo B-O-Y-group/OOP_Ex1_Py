@@ -5,34 +5,35 @@ import json
 
 
 class Building:
-
     def __init__(self, file):
-        self.elevator = []
-        self.count = 0  # how many elevator
-        # try:
-        with open('file', 'r+') as f:
-            data = json.loads(file)  # read the fill and make it array
 
-            self.min_floor, self.max_floor = data["_minFloor", "_maxFloor"]
-            # self.max_floor = data["_maxFloor"]
+        try:
+            f = open(file)
 
-            for i in data['_elevators']:
-                #  elev = Elevator("_id", "_speed", "_minFloor", "_maxFloor", "_closeTime", "_openTime",
-                #     "_startTime",
-                #     "_stopTime")
-                self.elevator.append(Elevator(i))
+            with open(file, 'r+'):
+                data = json.load(f)
+                print(data)
+                self.min_floor = data["_minFloor"]
+                self.max_floor = data["_maxFloor"]
+                self.elevator = []
 
-    f.close()
-# except IOError as exp:
-#   print(exp)
+                for i in data['_elevators']:
+                    elev = Elevator("_id", "_speed", "_minFloor", "_maxFloor", "_closeTime", "_openTime",
+                                    "_startTime", "_stopTime")
 
-
-# def __str__(self) -> str:
-#     return f"{self.elevator}\n cont:{self.count}"
+                    self.elevator.append(elev)
+            self.ElevatorList = self.elevator
 
 
-file1 = r"Users\97252\Downloads\Ex1_input (1)\Ex1_input\Ex1_BuildingsB1.json"
+        except IOError as exp:
+            print('my exp - ', exp)
 
-b1 = Building(file1)
+    def getMaxFloor(self):
+        return self.max_floor
 
-print(b1.max_Floor)
+    def getMinFloor(self):
+        return self.min_floor
+
+    def get_num_floor(self):
+        return (self.max_floor - self.min_floor) + 1
+
