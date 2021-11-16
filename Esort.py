@@ -3,9 +3,18 @@ from Elevator import *
 from CallForElevator import *
 from Building import *
 
-class Esort(Elevator):
-    
-    def __init__(self):
 
-        Elevator = []
-        
+class ESort(Building):
+    
+    def __init__(self, file):
+        super().__init__(file)
+
+        elev_list = []
+        elev_list.append(Building.)
+
+
+
+
+
+
+
