@@ -1,11 +1,11 @@
-# from CallList import *
+from CallList import *
 import numpy as np
 from Building import *
 
 
 class BTraffic:
     def __init__(self, call_list, b_json):
-        b = Building('B1.json')
+        b = Building(b_json)
         self.traffic_list = {}
         floor = b.getMinFloor()
         print(7)
@@ -13,10 +13,10 @@ class BTraffic:
             self.traffic_list[str(floor)] = 0
             floor += 1
         print(self.traffic_list)
-
+        #
 
 def main():
-    a = BTraffic(6, 7)
+    a = BTraffic(7,'B1.json')
 
 
 if __name__ == '__main__':

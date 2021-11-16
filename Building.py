@@ -1,10 +1,7 @@
-import callList
+import CallList
 from Elevator import Elevator
 
 import json
-
-
-
 
 class Building:
 
