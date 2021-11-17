@@ -1,27 +1,25 @@
 from CallForElevator import callForElevator
-from Elevator import Elevator
+
+import csv
 
 
 class callList:
 
-    def __init__(self, num_of_call):
-        self.num_of_call  # = callForElevator
-        call_list = []
-        for i in range(0, num_of_call):
-            call_list.append([])
+    def __init__(self, file):
+        a = 1
+        self.call = []
+        try:
+            with open(file, 'r') as file:
+                csvread = csv.reader(file)
+                for row in csvread:
+                    c = callForElevator(str=row[0], time=row[1], src=row[2], dest=row[3], type=row[4], index=row[5])
+                    self.call.append(c)
+                self.listcall = self.call
 
 
-def horse_power(self, src, dest, elev: Elevator):
-    stop_time = elev.stop_time
-    start_time = elev.start_time
-    open_time = elev.open_time
-    close_time = elev.close_time
-    speed = elev.speed
-    dis = abs(src - dest)
-    time = stop_time + start_time + open_time + close_time
+        except IOError as exp:
+            print('my exp - ', exp)
 
 
-#     return (time + dis / speed) * how_many_stop
-#
-#
-# if __name__ = '__main__':
+if __name__ == '__main__':
+    print(callList('Calls_a.csv'))
