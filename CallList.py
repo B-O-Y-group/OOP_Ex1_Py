@@ -6,6 +6,7 @@ import csv
 class callList:
 
     def __init__(self, file):
+        a = 1
         self.call = []
         try:
             with open(file, 'r') as file:
