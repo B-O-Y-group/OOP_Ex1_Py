@@ -10,10 +10,12 @@ class ESort:
 
     def __init__(self, b: Building):
 
-        self.sort_elev = b.get_el_list().sort()
+        self.sort_elev = b.get_el_list()
+        print(self.sort_elev)
+        self.sort_elev.sort()
 
 
 if __name__ == '__main__':
     print("here!!!")
-    test = ESort(Building('B2.json'))
+    test = ESort(Building('B5.json'))
     print(test.sort_elev)
