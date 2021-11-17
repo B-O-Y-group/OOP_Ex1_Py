@@ -3,7 +3,7 @@ from Building import *
 from CallForElevator import *
 from CallList import *
 
-class BTraffic(Building, CallList, callForElevator):
+class BTraffic(Building):
     def __init__(self, file):
         super().__init__(file)
         b = Building(file)
@@ -15,8 +15,9 @@ class BTraffic(Building, CallList, callForElevator):
             self.traffic_list[str(floor)] = 0
             floor += 1
         print(self.traffic_list)
-
-    def lulaa_mekunenet(self,):
+    #
+    # def lulaa_mekunenet(self,):
+    #     for i in range()
 
 
 # def main():
@@ -24,5 +25,5 @@ class BTraffic(Building, CallList, callForElevator):
 
 
 if __name__ == '__main__':
-    d= BTraffic('B1.json', 'Calls_a.csv')
+    d= BTraffic('B1.json')
     print(d)

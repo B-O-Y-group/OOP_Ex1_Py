@@ -8,18 +8,12 @@ import numpy as np
 
 class ESort:
 
-    def __init__(self):
+    def __init__(self, b: Building):
 
-        btra = Building('B1.json')
-        self.elev_list = btra.get_el_list()
-
-        # self.elev_list = np.sort
-
-    def __str__(self):
-        return f" {self.elev_list(iter())}"
+        self.sort_elev = b.get_el_list().sort()
 
 
 if __name__ == '__main__':
     print("here!!!")
-    test = ESort()
-    print(test.elev_list)
+    test = ESort(Building('B2.json'))
+    print(test.sort_elev)
