@@ -1,8 +1,8 @@
-from CallForElevator import cc
+from CallForElevator import CallForElevator
 import csv
 
 
-class callList:
+class CallList:
 
     def __init__(self, csvfile):
         self.call = []
@@ -10,7 +10,7 @@ class callList:
             with open(csvfile, 'r') as file:
                 csvread = csv.reader(file)
                 for row in csvread:
-                    c = cc(str=row[0], time=row[1], src=row[2], dest=row[3], type=row[4], index=row[5])
+                    c = CallForElevator(str=row[0], time=row[1], src=row[2], dest=row[3], type=row[4], index=row[5])
                     self.call.append(c)
 
                 self.listcall = self.call
@@ -22,7 +22,7 @@ class callList:
 
 
 if __name__ == '__main__':
-    callList("Calls_b.csv")
+    CallList("Calls_b.csv")
 
     # row = []
     #
