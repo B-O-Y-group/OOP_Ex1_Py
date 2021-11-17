@@ -8,7 +8,7 @@ import numpy as np
 
 class ESort:
 
-    def __init__(self, b: Building):
+    def __init__(self, b: BTraffic):
 
         self.sort_elev = b.get_el_list()
         print(self.sort_elev)
@@ -17,5 +17,5 @@ class ESort:
 
 if __name__ == '__main__':
     print("here!!!")
-    test = ESort(Building('B5.json'))
+    test = ESort(BTraffic('B5.json'))
     print(test.sort_elev)
