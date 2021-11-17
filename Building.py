@@ -23,9 +23,11 @@ class Building:
                     self.elevator.append(elev)
             self.ElevatorList = self.elevator
 
-
         except IOError as exp:
             print('my exp - ', exp)
+
+    def get_el_list(self):
+        return self.ElevatorList
 
     def getMaxFloor(self):
         return self.max_floor

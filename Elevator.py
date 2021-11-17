@@ -38,7 +38,10 @@ class Elevator:
         startT = self.stop_time()
         speed = 1 / self.get_speed()
 
-        return (openT + closeT + stopT + startT + speed)
+        return (openT + closeT + stopT + startT + 1 / speed)
+
+    def __lt__(self, other):
+        return Elevator.horse_power(self) > other
 
     def __str__(self) -> str:
         return f" {self.id},{self.speed}"
