@@ -1,20 +1,15 @@
-from binarytree import Node
+class TNode:
 
+    def __init__(self, i, j, value):
+        self.range = {"i": i, "j": j}
+        self.value = value
+        self.flag: bool = True
+        self.split = {"x": i, "y": j}
 
-class T_Node:
-
-    def __init__(self, left, right, traffic):
-        in_range = {"i": left, "j": right}
-
-        self.traffic = traffic
-
-        flag: bool = True
-
-        self.split = {"x": left, "y": right}
-
+        self.right = self.left = self.mid = None
 
     def set_false(self, x, y):
-        flag = False
+        self.flag = False
         self.set_split(x, y)
 
     def set_split(self, x, y):

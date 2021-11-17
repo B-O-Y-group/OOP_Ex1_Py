@@ -15,7 +15,10 @@ class ESort:
         self.sort_elev.sort()
 
 
-if __name__ == '__main__':
-    print("here!!!")
-    test = ESort(BTraffic('B5.json'))
-    print(test.sort_elev)
+
+
+
+# if __name__ == '__main__':
+#     print("here!!!")
+#     test = ESort(BTraffic('B5.json'))
+#     print(test.sort_elev)
