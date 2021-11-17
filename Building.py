@@ -12,7 +12,6 @@ class Building:
 
             with open(file, 'r+'):
                 data = json.load(f)
-                print(data)
                 self.min_floor = data["_minFloor"]
                 self.max_floor = data["_maxFloor"]
                 self.elevator = []
