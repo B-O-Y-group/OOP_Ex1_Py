@@ -1,4 +1,3 @@
-
 from cc import cc
 import csv
 
@@ -22,10 +21,8 @@ class callList:
             print('my exp - ', exp)
 
 
-# if __name__ == '__main__':
-#
-#     callList("Calls_b.csv")
-
+if __name__ == '__main__':
+    callList("Calls_b.csv")
 
     # row = []
     #
