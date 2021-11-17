@@ -9,6 +9,7 @@ class Elevator:
         self.open_time = _openTime
         self.start_time = _startTime
         self.stop_time = _stopTime
+        self.horse_power = self.min_floor + self.max_floor + self.close_time + self.open_time + self.start_time + self.stop_time + 1 / self.speed
 
     def get_speed(self):
         return self.speed
@@ -31,20 +32,23 @@ class Elevator:
     def stop_time(self):
         self.stop_time()
 
-    def horse_power(self) -> float:
-        openT = self.open_time()
-        closeT = self.close_time()
-        stopT = self.stop_time()
-        startT = self.stop_time()
-        speed = 1 / self.get_speed()
-
-        return (openT + closeT + stopT + startT + 1 / speed)
-
     def __lt__(self, other):
-        return Elevator.horse_power(self) > other
+        return self.horse_power < other.horse_power
 
     def __str__(self) -> str:
         return f" {self.id},{self.speed}"
 
     def __repr__(self):
-        return f" {self.id}, {self.speed}"
+        return f" id{self.id},speed {self.speed},min floor {self.min_floor},max floor {self.max_floor}"
+
+
+if __name__ == "__main__":
+    e1 = Elevator(1, 3, 10, 10, 10, 10, 10, 10)
+    e2 = Elevator(2, 2, 10, 10, 10, 10, 10, 10)
+    e3 = Elevator(3, 5, 10, 10, 10, 10, 10, 10)
+    e5 = Elevator(4, 4, 10, 10, 10, 10, 10, 10)
+
+    list = [e1, e2, e3, e5]
+    print(list)
+    list.sort()
+    print(list)
