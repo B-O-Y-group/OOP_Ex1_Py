@@ -20,7 +20,7 @@ class CallForElevator:
         return self.time
 
     def __str__(self) -> str:
-        return f"Str: {self.str} time : {self.time} src : {self.str} dest : {self.dest} type: {self.type} index: {self.index}"
+        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index}"
 
     def __repr__(self) -> str:
-        return f"Str: {self.str} time : {self.time} src : {self.str} dest : {self.dest} type: {self.type} index: {self.index}"
+        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index}"
