@@ -1,6 +1,6 @@
 
 
-class callForElevator:
+class CallForElevator:
 
     def __init__(self, str="Elevator call", time=0, src=0, dest=0, type=0, index=0) -> None:
         self.str = str

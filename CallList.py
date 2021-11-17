@@ -3,7 +3,7 @@ from CallForElevator import callForElevator
 import csv
 
 
-class callList:
+class CallList:
 
     def __init__(self, csvfile):
         self.call = []
@@ -21,4 +21,4 @@ class callList:
 
 
 if __name__ == '__main__':
-    print(callList('Calls_a.csv'))
+    print(('4444'))

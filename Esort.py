@@ -9,6 +9,7 @@ import numpy as np
 class ESort:
 
     def __init__(self):
+
         btra = Building('B1.json')
         self.elev_list = btra.get_el_list()
 
