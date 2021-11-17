@@ -5,10 +5,10 @@ import csv
 
 class callList:
 
-    def __init__(self, file):
+    def __init__(self, csvfile):
         self.call = []
         try:
-            with open(file, 'r') as file:
+            with open(csvfile, 'r') as file:
                 csvread = csv.reader(file)
                 for row in csvread:
                     c = callForElevator(str=row[0], time=row[1], src=row[2], dest=row[3], type=row[4], index=row[5])
