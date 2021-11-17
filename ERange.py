@@ -1,21 +1,11 @@
-import Esort
+from TRange import TRange
 from BTraffic import *
-from binarytree import bst
-from TNode import *
 from Esort import *
-from BTraffic import *
 
 
 class ERange:
+    def __init__(self, traffic_list: BTraffic, el_list: ESort):
+        self.range_tree = TRange
+        self.t_list = traffic_list
+        self.elevator_list = el_list.sort_elev
 
-
-# def __init__(self, b_traffic: BTraffic, e_sort: Esort):
-
-
-
-
-
-if __name__ == "__main__":
-    i = 1
-    j = 15
-    next_val = 21
