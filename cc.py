@@ -10,6 +10,15 @@ class cc:
     def set_index(self, data):
         self.index = data
 
+    def get_src(self):
+        return self.src
+
+    def get_dest(self):
+        return self.dest
+
+    def get_time(self):
+        return self.time
+
     def __str__(self) -> str:
         return f"Str: {self.str} time : {self.time} src : {self.str} dest : {self.dest} type: {self.type} index: {self.index}"
 
