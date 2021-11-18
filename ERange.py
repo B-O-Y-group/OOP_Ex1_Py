@@ -20,7 +20,7 @@ class ERange:
 
         '''------> split the first NODE'''
 
-        next_n = self.split(self.range_tree.root.range, 90)
+        next_n = self.split(self.range_tree.root.range, 200)
         self.range_tree.root.allocate_to_node(next_n["i"], next_n["j"])
         print("root split ", self.range_tree.root.split)
         print(next_n["val"])
@@ -30,7 +30,9 @@ class ERange:
         print(self.range_tree.max_list)
         self.pointer += 1
         print("the fking pointer ", self.pointer)
+
         ''' -----> alocate all elevators'''
+
         for i in range(len(self.elevator_list) - 1):
             curr = self.range_tree.max_list.__getitem__(0)
             curr.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
@@ -38,12 +40,17 @@ class ERange:
             print("CURR ALO ", curr.elev_id)
             print(self.range_tree.max_list)
             self.pointer += 1
-            print("the fking pointer V2 ", self.pointer)
-            next_n = self.split(curr.range, 30)
-            self.range_tree.root.allocate_to_node(next_n["i"], next_n["j"])
+            next_n = self.split(curr.range, 139)
+            curr.allocate_to_node(int(next_n["i"]), int(next_n["j"]))
             self.range_tree.addAfterSplit(curr, traffic_list)
             self.range_tree.max_list.sort()
             print(self.range_tree.max_list)
+        print("Traffic problem ", traffic_list.get_traffic(traffic_list.getMinFloor(), traffic_list.getMaxFloor()))
+        print("HOW MANY ELEVATORS ", len(self.t_list.get_el_list()))
+        print("MIN_F ", traffic_list.getMinFloor(), "MAX_F ", traffic_list.getMaxFloor(), "HOW MANY FLOORS ",
+              self.t_list.get_num_floor())
+
+        print2DUtil(self.range_tree.root, 1)
 
     '''SPLIT function here --------> '''
 
@@ -52,7 +59,7 @@ class ERange:
         val = self.t_list.get_traffic(i, i + 1) / 2
         ranges = {"left": i, "right": i + 1}
 
-        print("check range: ", n_range["j"])
+        # print("check range: ", n_range["j"])
         while i < int(n_range["j"]) - 1:
             j = i + 1
             while j < int(n_range["j"]):
@@ -77,3 +84,29 @@ class ERange:
     #             i -= 1
     #         if self.t_list.get_traffic(i, j) > val and j - i < num_index:
     #             val = self.t_list.get_traffic(i, j)
+
+
+COUNT = [10]
+
+
+def print2DUtil(root, space):
+    # Base case
+    if (root == None):
+        return
+
+    # Increase distance between levels
+    space += COUNT[0]
+
+    # Process right child first
+    print2DUtil(root.right, space)
+
+    # Print current node after space
+    # count
+    print()
+    for i in range(COUNT[0], space):
+        print(end=" ")
+    print(root.range)
+
+    # Process left child
+    print2DUtil(root.mid, space)
+    print2DUtil(root.left, space)

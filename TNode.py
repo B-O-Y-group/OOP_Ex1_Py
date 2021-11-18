@@ -15,7 +15,7 @@ class TNode:
 
     def allocate_to_node(self, x, y):
         self.flag = False
-        self.value = 0
+        self.value -= 2*self.value
         self.set_split(x, y)
 
     def set_split(self, x, y):
