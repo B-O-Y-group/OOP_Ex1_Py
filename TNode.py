@@ -2,6 +2,7 @@ class TNode:
 
     def __init__(self, i, j, value):
         self.range = {"i": i, "j": j}
+        self.get_range_space = int(j) - int(i)
         self.value = value
         self.flag: bool = True
         self.split = {"x": i, "y": j}

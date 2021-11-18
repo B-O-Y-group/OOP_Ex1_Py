@@ -28,3 +28,22 @@ class TRange:
         if y != str(parent_range_right) and parent_range_right - int(y) > 1:
             t_node.right = TNode(int(y), parent_range_right, traffic.get_traffic(int(y), parent_range_right))
             self.max_list.append(t_node.right)
+
+    def search_for_el(self, root: TNode, src, des):
+
+        if root.left is None and root.mid is None and root.right is None:
+            return root
+
+        if root.range["i"] <= root.left.range["i"] and root.left.range["j"] <= root.range["j"] and is_in_range(root.left):
+            return self.search_for_el(root.left, root.left.range["i"], root.left.range["j"])
+        if root.range["i"] <= int(root.mid.range["i"]) and int(root.mid.range["j"]) <= root.range["j"] and is_in_range(root.mid):
+            return self.search_for_el(root.mid, root.mid.range["i"], root.mid.range["j"])
+        if int(root.range["i"]) <= int(root.right.range["i"]) and int(root.right.range["j"]) <= int(root.range["j"]) and is_in_range(root.right):
+            return self.search_for_el(root.right, root.right.range["i"], root.right.range["j"])
+
+        return root
+
+
+def is_in_range(root: TNode):
+    if root is None:
+        return False

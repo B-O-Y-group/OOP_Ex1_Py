@@ -16,6 +16,8 @@ class MainAlgo:
         sorted_el_list = ESort(b_traffic)
         e_range = ERange(b_traffic, sorted_el_list)
 
+        print(e_range.range_tree.search_for_el(e_range.range_tree.root, 2, 3))
+
 
 if __name__ == '__main__':
     MainAlgo('B1.json', "Calls_b.csv")
