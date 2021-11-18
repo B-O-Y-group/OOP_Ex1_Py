@@ -18,4 +18,5 @@ class TNode:
         self.set_split(x, y)
 
     def set_split(self, x, y):
-        self.split["x", "y"] = x, y
+        self.split["x"] = x
+        self.split["y"] = y
