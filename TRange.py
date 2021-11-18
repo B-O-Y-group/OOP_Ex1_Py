@@ -13,6 +13,7 @@ class TRange:
         self.max_list = []
 
     def addAfterSplit(self, t_node: TNode, traffic: BTraffic):
+        parent_elev = t_node.elev_id
         print("in addAfterSplit func ", t_node.split.get("x"), t_node.split.get("y"))
         parent_range_left = t_node.range["i"]
         parent_range_right = t_node.range["j"]
@@ -21,29 +22,41 @@ class TRange:
         y = str(t_node.split.get("y"))
         new_t_node = TNode(x, y, traffic.get_traffic(int(x), int(y)))
         t_node.mid = new_t_node
+        t_node.mid.set_elev(parent_elev)
         self.max_list.append(t_node.mid)
         if x != str(parent_range_left) and int(x) - parent_range_left > 1:
             t_node.left = TNode(parent_range_left, int(x), traffic.get_traffic(parent_range_left, int(x)))
+            t_node.left.set_elev(parent_elev)
             self.max_list.append(t_node.left)
-        if y != str(parent_range_right) and parent_range_right - int(y) > 1:
-            t_node.right = TNode(int(y), parent_range_right, traffic.get_traffic(int(y), parent_range_right))
+        if y != str(parent_range_right) and int(parent_range_right) - int(y) > 1:
+            t_node.right = TNode(int(y), parent_range_right, traffic.get_traffic(int(y), int(parent_range_right)))
+            t_node.right.set_elev(parent_elev)
             self.max_list.append(t_node.right)
 
     def search_for_el(self, root: TNode, src, des):
 
         if root.left is None and root.mid is None and root.right is None:
+            print("curr node el_id -------> ", root.elev_id)
             return root
+        print(src)
+        # print(root.right.range["i"])
+        # print(int(root.right.range["i"]) <= src and des <= int(root.right.range["j"]) and node_is_not_null(root.right))
 
-        if root.range["i"] <= root.left.range["i"] and root.left.range["j"] <= root.range["j"] and is_in_range(root.left):
-            return self.search_for_el(root.left, root.left.range["i"], root.left.range["j"])
-        if root.range["i"] <= int(root.mid.range["i"]) and int(root.mid.range["j"]) <= root.range["j"] and is_in_range(root.mid):
-            return self.search_for_el(root.mid, root.mid.range["i"], root.mid.range["j"])
-        if int(root.range["i"]) <= int(root.right.range["i"]) and int(root.right.range["j"]) <= int(root.range["j"]) and is_in_range(root.right):
-            return self.search_for_el(root.right, root.right.range["i"], root.right.range["j"])
+        if node_is_not_null(root.left):
+            if int(root.left.range["i"]) <= int(src) and int(des) <= int(root.left.range["j"]):
+                return self.search_for_el(root.left, src, des)
+        if node_is_not_null(root.mid):
+            if int(root.mid.range["i"]) <= int(src) and int(des) <= int(root.mid.range["j"]):
+                return self.search_for_el(root.mid, src, des)
+        if node_is_not_null(root.right):
+            if int(root.right.range["i"]) <= int(src) and int(des) <= int(root.right.range["j"]):
+                return self.search_for_el(root.right, src, des)
+
+        print("curr node el_id -------> ", root.elev_id)
 
         return root
 
 
-def is_in_range(root: TNode):
-    if root is None:
-        return False
+def node_is_not_null(root: TNode):
+    if root is not None:
+        return True

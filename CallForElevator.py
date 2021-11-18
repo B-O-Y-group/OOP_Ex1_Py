@@ -6,9 +6,10 @@ class CallForElevator:
         self.dest = dest
         self.type = type
         self.index = index
+        self.allocate_ind = 0
 
-    def set_index(self, data):
-        self.index = data
+    def set_indexio(self, data):
+        self.allocate_ind = data
 
     def get_src(self):
         return self.src
@@ -20,7 +21,7 @@ class CallForElevator:
         return self.time
 
     def __str__(self) -> str:
-        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index}"
+        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index} fixed: {self.allocate_ind}"
 
     def __repr__(self) -> str:
-        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index}"
+        return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index} fixed: {self.allocate_ind}"
