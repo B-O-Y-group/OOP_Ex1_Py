@@ -13,10 +13,20 @@ class TNode:
     def set_elev(self, e_id):
         self.elev_id = e_id
 
-    def set_false(self, x, y):
+    def allocate_to_node(self, x, y):
         self.flag = False
+        self.value = 0
         self.set_split(x, y)
 
     def set_split(self, x, y):
         self.split["x"] = x
         self.split["y"] = y
+
+    def __lt__(self, other):
+        return self.value > other.value
+
+    def __str__(self):
+        return f" {self.range},{self.flag},{self.value},{self.split}"
+
+    def __repr__(self):
+        return f" {self.range},{self.flag},{self.value},{self.split}"

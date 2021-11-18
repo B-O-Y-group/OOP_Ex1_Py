@@ -13,6 +13,7 @@ class ESort:
         self.sort_elev = b.get_el_list()
         print(self.sort_elev)
         self.sort_elev.sort()
+        print("___________________________________________________>>>>>>>>>>>>>>>>", self.sort_elev)
 
 
 

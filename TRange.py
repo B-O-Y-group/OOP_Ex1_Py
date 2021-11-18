@@ -10,8 +10,20 @@ class TRange:
         self.root = TNode(b_traffic.getMinFloor(), b_traffic.getMaxFloor(),
                           b_traffic.get_traffic(b_traffic.getMinFloor(), b_traffic.getMaxFloor()))
         self.pointer = 1
+        self.max_list = []
 
-    def add(self, data: TNode, dir):
-        if self.pointer < len(self.e_sort.sort_elev):
-            curr = data.dir
-
+    def addAfterSplit(self, t_node: TNode, traffic: BTraffic):
+        print("problem: ", t_node.split.get("y"))
+        parent_range_left = t_node.range["i"]
+        parent_range_right = t_node.range["j"]
+        x = str(t_node.split.get("x"))
+        y = str(t_node.split.get("y"))
+        new_t_node = TNode(x, y, traffic.get_traffic(int(x), int(y)))
+        t_node.mid = new_t_node
+        self.max_list.append(t_node.mid)
+        if x != str(parent_range_left) and int(x) - parent_range_left > 1:
+            t_node.left = TNode(str(parent_range_left), x, traffic.get_traffic(parent_range_left, int(x)))
+            self.max_list.append(t_node.left)
+        if y != str(parent_range_right) and parent_range_right - int(y) > 1:
+            t_node.right = TNode(y, str(parent_range_right), traffic.get_traffic(int(y), parent_range_right))
+            self.max_list.append(t_node.right)
