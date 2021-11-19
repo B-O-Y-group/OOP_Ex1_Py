@@ -16,6 +16,8 @@ class ESort:
         print("___________________________________________________>>>>>>>>>>>>>>>>", self.sort_elev)
 
 
+    def __str__(self):
+        return f" {self.sort_elev}"
 
 
 
