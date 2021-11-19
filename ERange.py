@@ -19,7 +19,7 @@ class ERange:
         self.range_tree.root.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
 
         '''------> split the first NODE'''
-        self.target = 400
+        self.target = self.t_list.get_traffic(self.t_list.getMinFloor(), self.t_list.getMaxFloor())* None #todo
         next_n = self.split(self.range_tree.root.range, self.target)
         self.range_tree.root.allocate_to_node(next_n["i"], next_n["j"])
         print("root split ", self.range_tree.root.split)
@@ -34,7 +34,7 @@ class ERange:
         ''' -----> alocate all elevators'''
 
         for i in range(len(self.elevator_list) - 1):
-            self.target /= 5  # need to fix target
+            self.target *= None # todo
             curr = self.range_tree.max_list.__getitem__(0)
             curr.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
             print("KOKO", curr.range, "the ELEV ", el_list.sort_elev.__getitem__(self.pointer).id)

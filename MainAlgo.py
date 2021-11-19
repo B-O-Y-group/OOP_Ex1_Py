@@ -9,10 +9,11 @@ from CallList import CallList
 
 class MainAlgo:
     def __init__(self, b_json: json, calls: csv):
-        for_test_building = 'B1.json'
-        for_test_calls = "Calls_a.csv"
-        self.list_of_calls = CallList(for_test_calls)
-        b_traffic = BTraffic('B4.json', self.list_of_calls)
+        # for_test_building = 'B4.json'
+        # for_test_calls = "Calls_a.csv"
+        self.list_of_calls = CallList(calls)
+        b_traffic = BTraffic(b_json, self.list_of_calls)
+        print("!!!!!!!!!!!!!!!!!", b_traffic.traffic_list)
         sorted_el_list = ESort(b_traffic)
         e_range = ERange(b_traffic, sorted_el_list)
 
@@ -37,5 +38,5 @@ class MainAlgo:
 
 
 if __name__ == '__main__':
-    test = MainAlgo('B1.json', "Calls_b.csv")
+    test = MainAlgo('B4.json', "Calls_a.csv")
     test.calls_to_csv()
