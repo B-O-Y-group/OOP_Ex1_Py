@@ -9,17 +9,13 @@ import numpy as np
 class ESort:
 
     def __init__(self, b: BTraffic):
-
         self.sort_elev = b.get_el_list()
         print(self.sort_elev)
         self.sort_elev.sort()
         print("___________________________________________________>>>>>>>>>>>>>>>>", self.sort_elev)
 
-
     def __str__(self):
         return f" {self.sort_elev}"
-
-
 
 # if __name__ == '__main__':
 #     print("here!!!")

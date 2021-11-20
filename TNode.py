@@ -16,7 +16,7 @@ class TNode:
 
     def allocate_to_node(self, x, y):
         self.flag = False
-        self.value -= 2*self.value
+        self.value -= 2 * self.value
         self.set_split(x, y)
 
     def set_split(self, x, y):
@@ -27,7 +27,7 @@ class TNode:
         return self.value > other.value
 
     def __str__(self):
-        return f" {self.range},{self.flag},{self.value},{self.split}"
+        return f" {self.range},{self.flag},{self.value},{self.split}, {self.elev_id}"
 
     def __repr__(self):
-        return f" {self.range},{self.flag},{self.value},{self.split}"
+        return f" {self.range},{self.flag},{self.value},{self.split}, {self.elev_id}"

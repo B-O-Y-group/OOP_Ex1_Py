@@ -3,7 +3,6 @@ import csv
 
 
 class CallList:
-
     def __init__(self, csvfile):
         self.call = []
         try:
@@ -21,8 +20,8 @@ class CallList:
             print('my exp - ', exp)
 
 
-if __name__ == '__main__':
-    CallList("Calls_b.csv")
+# if __name__ == '__main__':
+#     CallList("Calls_b.csv")
 
     # row = []
     #
