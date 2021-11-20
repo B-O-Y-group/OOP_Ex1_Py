@@ -17,13 +17,15 @@ class ERange:
         '''------> init the tree '''
         self.pointer = 0
         self.range_tree.root.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
+        print("curr node el_id -------> ", self.range_tree.root.elev_id)
 
         '''------> split the first NODE'''
-        self.target = 400
+        self.target = traffic_list.get_traffic(traffic_list.getMinFloor(), traffic_list.getMaxFloor()) / (
+            len(traffic_list.get_el_list()))
         next_n = self.split(self.range_tree.root.range, self.target)
         self.range_tree.root.allocate_to_node(next_n["i"], next_n["j"])
         print("root split ", self.range_tree.root.split)
-        print(next_n["val"])
+        # print(next_n["val"])
         self.range_tree.addAfterSplit(self.range_tree.root, traffic_list)
         self.range_tree.max_list.append(self.range_tree.root)
         self.range_tree.max_list.sort()
@@ -31,11 +33,12 @@ class ERange:
         self.pointer += 1
         print("the fking pointer ", self.pointer)
 
-        ''' -----> alocate all elevators'''
+        ''' -----> allocate all elevators'''
 
         for i in range(len(self.elevator_list) - 1):
-            self.target /= 5  # need to fix target
             curr = self.range_tree.max_list.__getitem__(0)
+            self.target = traffic_list.get_traffic(curr.range["i"], curr.range["j"]) / (
+                    len(traffic_list.get_el_list()) - self.pointer)  # need to fix target
             curr.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
             print("KOKO", curr.range, "the ELEV ", el_list.sort_elev.__getitem__(self.pointer).id)
             print("CURR ALO ", curr.elev_id)
@@ -56,6 +59,17 @@ class ERange:
     '''SPLIT function here --------> '''
 
     def split(self, n_range: TNode, target):
+
+        # left_range = {n_range["i"], n_range["j"] / 2}
+        # right_range = {(n_range["j"] + 1) / 2, n_range["j"]}
+
+        # max_left = self.t_list.get_traffic(n_range["i"], int(int(n_range["j"]) / 2))
+        # max_right = self.t_list.get_traffic(int((int(n_range["j"])) / 2 + 1), n_range["j"])
+        #
+        # if max_left > max_right:
+        #     return {"i": n_range["i"], "j": int(int(n_range["j"]) / 2), "val": max_left}
+        #
+        # return {"i": int((int(n_range["j"])) / 2 + 1), "j": n_range["j"], "val": max_right}
         i = int(n_range["i"])
         val = self.t_list.get_traffic(i, i + 1) / 2
         ranges = {"left": i, "right": i + 1}
@@ -65,8 +79,6 @@ class ERange:
             j = i + 1
             while j < int(n_range["j"]):
                 if self.t_list.get_traffic(i, j) / (j - i) > val and self.t_list.get_traffic(i, j) <= target:
-                    print("we got true")
-                    print(self.t_list.get_traffic(i, j))
                     val = self.t_list.get_traffic(i, j)
                     ranges["left"] = i
                     ranges["right"] = j
@@ -74,17 +86,6 @@ class ERange:
             i += 1
 
         return {"i": ranges["left"], "j": ranges["right"], "val": val}
-    # while j <= right:
-    #     while self.t_list.get_traffic(i, j) < target:
-    #         j += 1
-    #     if self.t_list.get_traffic(i, j) > val and j - i < num_index:
-    #         val = self.t_list.get_traffic(i, j)
-    #     i_pos = i
-    #     while i < j:
-    #         while self.t_list.get_traffic(i, j) < target:
-    #             i -= 1
-    #         if self.t_list.get_traffic(i, j) > val and j - i < num_index:
-    #             val = self.t_list.get_traffic(i, j)
 
 
 COUNT = [10]
@@ -106,7 +107,7 @@ def print2DUtil(root, space):
     print()
     for i in range(COUNT[0], space):
         print(end=" ")
-    print(root.range)
+    print(root)
 
     # Process left child
     print2DUtil(root.mid, space)

@@ -26,10 +26,11 @@ class BTraffic(Building):
                            int(calls.listcall.__getitem__(i).get_dest())):
                 self.traffic_list[str(j)] += 1
             self.traffic_list[str(calls.listcall.__getitem__(i).get_dest())] += 2
+        print(self.traffic_list)
 
     def get_traffic(self, left, right):
         t_sum = 0
-        for i in range(left, right + 1):
+        for i in range(int(left), int(right) + 1):
             t_sum += self.traffic_list.get(str(i))
         return t_sum
 

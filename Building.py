@@ -35,3 +35,11 @@ class Building:
 
     def get_num_floor(self):
         return (self.max_floor - self.min_floor) + 1
+
+    def get_el_by_id(self, name):
+        for i in self.get_el_list():
+            if self.get_el_list().__getitem__(i).id == name:
+                print("this this this ", self.get_el_list().__getitem__(i))
+                return self.get_el_list().__getitem__(i)
+        print("no such elevator !!!!!")
+        return -1

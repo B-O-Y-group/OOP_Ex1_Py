@@ -7,6 +7,7 @@ from Esort import *
 class TRange:
     def __init__(self, b_traffic: BTraffic, e_sorted: ESort):
         self.e_sort = e_sorted
+        self.BOOBO = b_traffic
         self.root = TNode(b_traffic.getMinFloor(), b_traffic.getMaxFloor(),
                           b_traffic.get_traffic(b_traffic.getMinFloor(), b_traffic.getMaxFloor()))
         self.pointer = 1
@@ -34,15 +35,15 @@ class TRange:
             self.max_list.append(t_node.right)
 
     def search_for_el(self, root: TNode, src, des):
-
         if root.left is None and root.mid is None and root.right is None:
             print("curr node el_id -------> ", root.elev_id)
             return root
-        print(src)
+        # print(src)
         # print(root.right.range["i"])
         # print(int(root.right.range["i"]) <= src and des <= int(root.right.range["j"]) and node_is_not_null(root.right))
 
         if node_is_not_null(root.left):
+            print("!!!!!!!!!!!!!!!!!!!!! ", BTraffic.get_el_by_id(self.BOOBO, 7))
             if int(root.left.range["i"]) <= int(src) and int(des) <= int(root.left.range["j"]):
                 return self.search_for_el(root.left, src, des)
         if node_is_not_null(root.mid):
