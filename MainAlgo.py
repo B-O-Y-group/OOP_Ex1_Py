@@ -11,8 +11,8 @@ class MainAlgo:
     def __init__(self, b_json: json, calls: csv):
         for_test_building = 'B1.json'
         for_test_calls = "Calls_a.csv"
-        self.list_of_calls = CallList(for_test_calls)
-        b_traffic = BTraffic('B4.json', self.list_of_calls)
+        self.list_of_calls = CallList(calls)
+        b_traffic = BTraffic(b_json, self.list_of_calls)
         sorted_el_list = ESort(b_traffic)
         e_range = ERange(b_traffic, sorted_el_list)
         print("NUM OF CALLS ", len(self.list_of_calls.listcall))
@@ -36,5 +36,5 @@ class MainAlgo:
 
 
 if __name__ == '__main__':
-    test = MainAlgo('B3.json', "Calls_b.csv")
-    # test.calls_to_csv()
+    test = MainAlgo('B3.json', "Calls_c.csv")
+    test.calls_to_csv()

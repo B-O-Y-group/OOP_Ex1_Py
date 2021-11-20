@@ -10,8 +10,7 @@ class Elevator:
         self.start_time = _startTime
         self.stop_time = _stopTime
         self.horse_power = 1 / (self.close_time + self.open_time + self.start_time + self.stop_time) + self.speed
-
-        call_queue = []
+        self.call_queue = []
 
     def get_speed(self):
         return self.speed
@@ -35,7 +34,7 @@ class Elevator:
         self.stop_time()
 
     def __lt__(self, other):
-        return self.horse_power < other.horse_power
+        return self.horse_power > other.horse_power
 
     def __str__(self) -> str:
         return f" {self.id},{self.speed}"

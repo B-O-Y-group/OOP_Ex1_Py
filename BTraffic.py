@@ -11,7 +11,7 @@ class BTraffic(Building):
         self.traffic_list = {}
         floor = self.getMinFloor()
         print(self.get_num_floor())
-        listo = calls
+        self.listo = calls
         ''' Init the List of Traffic int the building (all floors get value - 0) '''
         for i in range(self.get_num_floor()):
             self.traffic_list[str(floor)] = 0
