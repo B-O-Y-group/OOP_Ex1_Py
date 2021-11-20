@@ -1,7 +1,7 @@
-import Esort
-from TNode import *
-from BTraffic import *
-from Esort import *
+from Project import Esort
+from Project.TNode import *
+from Project.BTraffic import *
+from Project.Esort import *
 
 
 class TRange:

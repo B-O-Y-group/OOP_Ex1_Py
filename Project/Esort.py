@@ -1,8 +1,8 @@
-import Building
-from BTraffic import BTraffic
-from Elevator import *
-from CallForElevator import *
-from Building import *
+from Project import Building
+from Project.BTraffic import BTraffic
+from Project.Elevator import *
+from Project.CallForElevator import *
+from Project.Building import *
 import numpy as np
 
 

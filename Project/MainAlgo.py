@@ -1,10 +1,10 @@
 import json
 import csv
 
-from BTraffic import BTraffic
-from ERange import *
-from Esort import ESort
-from CallList import CallList
+from Project.BTraffic import BTraffic
+from Project.ERange import *
+from Project.Esort import ESort
+from Project.CallList import CallList
 
 
 class MainAlgo:
@@ -12,7 +12,7 @@ class MainAlgo:
         for_test_building = 'B1.json'
         for_test_calls = "Calls_a.csv"
         self.list_of_calls = CallList(for_test_calls)
-        b_traffic = BTraffic('B4.json', self.list_of_calls)
+        b_traffic = BTraffic('../jsonFile/B1.json', self.list_of_calls)
         sorted_el_list = ESort(b_traffic)
         e_range = ERange(b_traffic, sorted_el_list)
 
@@ -37,5 +37,5 @@ class MainAlgo:
 
 
 if __name__ == '__main__':
-    test = MainAlgo('B1.json', "Calls_b.csv")
+    test = MainAlgo('B1.json', "Calls_a.csv")
     test.calls_to_csv()

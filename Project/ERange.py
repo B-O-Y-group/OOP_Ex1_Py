@@ -1,6 +1,6 @@
 from TNode import TNode
 from TRange import TRange
-from BTraffic import *
+from Project.BTraffic import *
 from Esort import *
 from mybts import MaxHeap
 
