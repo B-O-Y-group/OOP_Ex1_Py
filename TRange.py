@@ -38,14 +38,14 @@ class TRange:
     def search_for_el(self, root: TNode, src, des):
         if root.left is None and root.mid is None and root.right is None:
             BTraffic.get_el_by_id(self.BOOBO, root.elev_id).call_queue.append(1)
-            print("curr node el_id -------> ", root.elev_id)
+            # print("curr node el_id -------> ", root.elev_id)
             return root
         # print(src)
         # print(root.right.range["i"])
         # print(int(root.right.range["i"]) <= src and des <= int(root.right.range["j"]) and node_is_not_null(root.right))
 
         if node_is_not_null(root.left):
-            print("!!!!!!!!!!!!!!!!!!!!! ", BTraffic.get_el_by_id(self.BOOBO, root.left.elev_id).call_queue)
+            # print("!!!!!!!!!!!!!!!!!!!!! ", BTraffic.get_el_by_id(self.BOOBO, root.left.elev_id).call_queue)
             if int(root.left.range["i"]) <= int(src) and int(des) <= int(root.left.range["j"]):
                 return self.search_for_el(root.left, src, des)
         if node_is_not_null(root.mid):

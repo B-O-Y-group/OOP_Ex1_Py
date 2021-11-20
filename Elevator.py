@@ -34,7 +34,7 @@ class Elevator:
         self.stop_time()
 
     def __lt__(self, other):
-        return self.horse_power > other.horse_power
+        return self.horse_power < other.horse_power
 
     def __str__(self) -> str:
         return f" {self.id},{self.speed}"

@@ -7,6 +7,7 @@ from mybts import MaxHeap
 
 class ERange:
     def __init__(self, traffic_list: BTraffic, el_list: ESort):
+        '''new idea ----->'''
 
         """ Data structures : """
 
@@ -20,8 +21,9 @@ class ERange:
         print("curr node el_id -------> ", self.range_tree.root.elev_id)
 
         '''------> split the first NODE'''
-        self.target = traffic_list.get_traffic(traffic_list.getMinFloor(), traffic_list.getMaxFloor()) / (
-            len(traffic_list.get_el_list()))
+        self.target = 1001 / 1.6
+        # self.target = traffic_list.get_traffic(traffic_list.getMinFloor(), traffic_list.getMaxFloor()) / (
+        #     len(traffic_list.get_el_list()))
         next_n = self.split(self.range_tree.root.range, self.target)
         self.range_tree.root.allocate_to_node(next_n["i"], next_n["j"])
         print("root split ", self.range_tree.root.split)
@@ -37,8 +39,10 @@ class ERange:
 
         for i in range(len(self.elevator_list) - 1):
             curr = self.range_tree.max_list.__getitem__(0)
-            self.target = traffic_list.get_traffic(curr.range["i"], curr.range["j"]) / (
-                    len(traffic_list.get_el_list()) - self.pointer)  # need to fix target
+
+            self.target /= 1.6
+            # self.target = traffic_list.get_traffic(curr.range["i"], curr.range["j"]) / (
+            #         len(traffic_list.get_el_list()) - self.pointer)  # need to fix target
             curr.set_elev(el_list.sort_elev.__getitem__(self.pointer).id)
             print("KOKO", curr.range, "the ELEV ", el_list.sort_elev.__getitem__(self.pointer).id)
             print("CURR ALO ", curr.elev_id)
@@ -59,17 +63,12 @@ class ERange:
     '''SPLIT function here --------> '''
 
     def split(self, n_range: TNode, target):
+        # sub_range = {"x": n_range["i"], "y": n_range["i"] + target}
 
-        # left_range = {n_range["i"], n_range["j"] / 2}
-        # right_range = {(n_range["j"] + 1) / 2, n_range["j"]}
 
-        # max_left = self.t_list.get_traffic(n_range["i"], int(int(n_range["j"]) / 2))
-        # max_right = self.t_list.get_traffic(int((int(n_range["j"])) / 2 + 1), n_range["j"])
-        #
-        # if max_left > max_right:
-        #     return {"i": n_range["i"], "j": int(int(n_range["j"]) / 2), "val": max_left}
-        #
-        # return {"i": int((int(n_range["j"])) / 2 + 1), "j": n_range["j"], "val": max_right}
+
+
+
         i = int(n_range["i"])
         val = self.t_list.get_traffic(i, i + 1) / 2
         ranges = {"left": i, "right": i + 1}
