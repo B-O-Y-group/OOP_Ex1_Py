@@ -1,3 +1,6 @@
+from CallForElevator import CallForElevator
+
+
 class Elevator:
 
     def __init__(self, _id, _speed, _minFloor, _maxFloor, _closeTime, _openTime, _startTime, _stopTime):
@@ -9,7 +12,8 @@ class Elevator:
         self.open_time = _openTime
         self.start_time = _startTime
         self.stop_time = _stopTime
-        self.horse_power = self.min_floor + self.max_floor + self.close_time + self.open_time + self.start_time + self.stop_time + 1 / self.speed
+        self.horse_power = 1 / (self.close_time + self.open_time + self.start_time + self.stop_time) + self.speed
+        self.call_queue = []
 
     def get_speed(self):
         return self.speed
@@ -40,15 +44,3 @@ class Elevator:
 
     def __repr__(self):
         return f" id{self.id},speed {self.speed},min floor {self.min_floor},max floor {self.max_floor}"
-
-
-if __name__ == "__main__":
-    e1 = Elevator(1, 3, 10, 10, 10, 10, 10, 10)
-    e2 = Elevator(2, 2, 10, 10, 10, 10, 10, 10)
-    e3 = Elevator(3, 5, 10, 10, 10, 10, 10, 10)
-    e5 = Elevator(4, 4, 10, 10, 10, 10, 10, 10)
-
-    list = [e1, e2, e3, e5]
-    print(list)
-    list.sort()
-    print(list)

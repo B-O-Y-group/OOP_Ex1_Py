@@ -19,6 +19,10 @@ class CallForElevator:
     def get_time(self):
         return self.time
 
+
+    def __lt__(self, other):
+        return self.time < other
+
     def __str__(self) -> str:
         return f"Str: {self.str} time : {self.time} src : {self.src} dest : {self.dest} type: {self.type} index: {self.index}"
 
