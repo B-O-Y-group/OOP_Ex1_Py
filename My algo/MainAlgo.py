@@ -18,7 +18,7 @@ class MainAlgo:
             i.set_index(e_range.range_tree.search_for_el(e_range.range_tree.root, i.src, i.dest, i).elev_id)
 
     def calls_to_csv(self):
-        file = 'output.csv'
+        file = '../output.csv'
         output_list = []
         for i in self.list_of_calls.listcall:
             output_list.append(i.__dict__.values())
