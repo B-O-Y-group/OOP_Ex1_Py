@@ -29,5 +29,5 @@ class MainAlgo:
 
 
 if __name__ == '__main__':
-    test = MainAlgo('B4.json', "Calls_c.csv")
+    test = MainAlgo('json file/B5.json', "csv file/Calls_d.csv")
     test.calls_to_csv()
