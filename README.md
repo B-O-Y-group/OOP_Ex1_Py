@@ -2,8 +2,9 @@
 Assignment ex1
 
 Main algo :
-by finding all the crowded areas of calls we can allocate the best elevator 
-The best elevator is the one that makes the most range in less time .
+The main idea of this algorithm is to classify the elevators by range in the most traffic areas in the building,
+and then allocate the most accurate elevator in the call range (src <-> des). 
+The division is calculating by the fastest elevator to the slowest.
 
 class Building:
 This class reads the json file and gets the min floor , max floor and array of elevator .
