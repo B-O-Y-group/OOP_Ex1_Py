@@ -20,7 +20,7 @@ This class reads the csv file and get all the calls for the elevator .
 Class  call for elevator :
 This class gives the info of the call like src ,dest  , time  .
 
-class B traffic :
+Class  B traffic :
 This class  gets all the calls and elevator , by going on the building floor we add +1 on all the floors over the( src - dest) and +2 for the floor src and dest.
 so we can find the traffic area.
 
