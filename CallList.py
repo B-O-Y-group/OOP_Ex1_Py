@@ -13,23 +13,8 @@ class CallList:
                     self.call.append(c)
 
                 self.listcall = self.call
-                print(self.call)
+
 
 
         except IOError as exp:
             print('my exp - ', exp)
-
-
-# if __name__ == '__main__':
-#     CallList("Calls_b.csv")
-
-    # row = []
-    #
-    # with open("Calls_a.csv") as file:
-    #         csr = csv.reader(file)
-    #
-    #
-    #         for r in csr:
-    #             row.append(r)
-    #
-    # print(row)
